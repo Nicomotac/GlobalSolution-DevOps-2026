@@ -131,5 +131,5 @@ docker compose down -v       # remove tambem o volume
 - RM563000 - Enzo Vieira Bernardini - 2TDSPI
 
 ## Links
-- Repositorio GitHub: <https://github.com/Caiok275/API-GlobalSolution-1-2026>
-- Video no YouTube:
+- Repositorio GitHub: https://github.com/Caiok275/API-GlobalSolution-1-2026
+- Video no YouTube: https://www.youtube.com/watch?v=rXOr7yFiH3M
