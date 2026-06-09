@@ -31,6 +31,20 @@ Fluxo: o usuario acessa a aplicacao pela porta 8080 publicada na VM. O container
 
 ---
 
+## Variáveis de Ambiente
+- ASPNETCORE_ENVIRONMENT=Production
+- ConnectionStrings__DefaultConnection=Host=db-RM561857;Port=5432;Database=pmdb;Username=pmuser;Password=pmpass123
+- ASPNETCORE_HTTP_PORTS=8080
+- ASPNETCORE_URLS=http://+:8080
+- POSTGRES_USER=pmuser
+- POSTGRES_PASSWORD=pmpass123
+- POSTGRES_DB=pmdb
+
+## IP PÚBLICO
+
+- 20.104.198.199
+
+
 ## How to (passo a passo - do clone ate as evidencias)
 
 
@@ -99,7 +113,7 @@ docker container exec -it db-RM561857 psql -U pmuser -d pmdb -c "SELECT * FROM s
 docker container exec -it db-RM561857 psql -U pmuser -d pmdb -c "\dt"
 ```
 
-### 8. Encerrar (opcional)
+### 8. Encerrar
 ```bash
 docker compose down          # mantem o volume
 docker compose down -v       # remove tambem o volume
