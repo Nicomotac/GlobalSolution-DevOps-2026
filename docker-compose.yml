@@ -1,0 +1,48 @@
+# ============================================================
+# Global Solution 2026/1 - DevOps Tools & Cloud Computing
+# App .NET (PM_API) + Banco PostgreSQL
+# Representante da equipe: RM561857
+# ============================================================
+
+services:
+
+  # ---------- Container do Banco de Dados ----------
+  db-RM561857:
+    image: postgres:16
+    container_name: db-RM561857          # nome do container contem o RM (exigido)
+    environment:                          # variaveis de ambiente (exigido)
+      POSTGRES_DB: pmdb
+      POSTGRES_USER: pmuser
+      POSTGRES_PASSWORD: pmpass123
+    ports:
+      - "5432:5432"                       # porta exposta para acesso externo (exigido)
+    volumes:
+      - pmdata:/var/lib/postgresql/data   # volume NOMEADO para persistencia (exigido)
+    networks:
+      - pmnet                             # mesma rede do App (exigido)
+    restart: unless-stopped
+
+  # ---------- Container da Aplicacao (.NET) ----------
+  app-RM561857:
+    build:
+      context: .
+      dockerfile: Dockerfile              # gera imagem personalizada (exigido)
+    container_name: app-RM561857          # nome do container contem o RM (exigido)
+    environment:                          # variavel de ambiente: connection string (exigido)
+      ConnectionStrings__DefaultConnection: "Host=db-RM561857;Port=5432;Database=pmdb;Username=pmuser;Password=pmpass123"
+      ASPNETCORE_ENVIRONMENT: "Production"
+    ports:
+      - "8080:8080"                       # porta exposta para acesso a aplicacao (exigido)
+    depends_on:
+      - db-RM561857
+    networks:
+      - pmnet                             # mesma rede do Banco (exigido)
+    restart: unless-stopped
+
+# Volume nomeado (exigido)
+volumes:
+  pmdata:
+
+# Rede compartilhada entre App e Banco (exigido)
+networks:
+  pmnet:
