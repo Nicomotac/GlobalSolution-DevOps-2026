@@ -98,11 +98,18 @@ curl http://localhost:8080/api/DataCenter
 curl http://localhost:8080/api/Sensor
 ```
 
-### 7. Evidenciar a persistencia no banco com SELECT
+### 7. Evidenciar a persistencia no banco com SELECT 
 ```bash
 docker container exec -it db-RM561857 psql -U pmuser -d pmdb -c "SELECT * FROM datacenter;"
 docker container exec -it db-RM561857 psql -U pmuser -d pmdb -c "SELECT * FROM sensor;"
 docker container exec -it db-RM561857 psql -U pmuser -d pmdb -c "\dt"
+
+```
+
+### EXECUÇÃO EM MODO INTERATIVO
+```bash
+docker container exec -it db-RM561857 psql -U pmuser -d pmdb
+
 ```
 
 ### 8. Encerrar
