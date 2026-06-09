@@ -7,42 +7,40 @@
 services:
 
   # ---------- Container do Banco de Dados ----------
-  db-RM561857:
+  db:
     image: postgres:16
-    container_name: db-RM561857          # nome do container contem o RM (exigido)
-    environment:                          # variaveis de ambiente (exigido)
+    container_name: db-RM561857
+    environment:
       POSTGRES_DB: pmdb
       POSTGRES_USER: pmuser
       POSTGRES_PASSWORD: pmpass123
     ports:
-      - "5432:5432"                       # porta exposta para acesso externo (exigido)
+      - "5432:5432"
     volumes:
-      - pmdata:/var/lib/postgresql/data   # volume NOMEADO para persistencia (exigido)
+      - pmdata:/var/lib/postgresql/data
     networks:
-      - pmnet                             # mesma rede do App (exigido)
+      - pmnet
     restart: unless-stopped
 
   # ---------- Container da Aplicacao (.NET) ----------
-  app-RM561857:
+  app:
     build:
       context: .
-      dockerfile: Dockerfile              # gera imagem personalizada (exigido)
+      dockerfile: Dockerfile
     container_name: app-RM561857          # nome do container contem o RM (exigido)
-    environment:                          # variavel de ambiente: connection string (exigido)
+    environment:
       ConnectionStrings__DefaultConnection: "Host=db-RM561857;Port=5432;Database=pmdb;Username=pmuser;Password=pmpass123"
       ASPNETCORE_ENVIRONMENT: "Production"
     ports:
-      - "8080:8080"                       # porta exposta para acesso a aplicacao (exigido)
+      - "8080:8080"
     depends_on:
-      - db-RM561857
+      - db
     networks:
-      - pmnet                             # mesma rede do Banco (exigido)
+      - pmnet
     restart: unless-stopped
 
-# Volume nomeado (exigido)
 volumes:
   pmdata:
 
-# Rede compartilhada entre App e Banco (exigido)
 networks:
   pmnet:
