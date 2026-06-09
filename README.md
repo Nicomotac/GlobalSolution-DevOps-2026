@@ -3,11 +3,9 @@
 
 Conteinerizacao da API **PM_API** (.NET 10 / ASP.NET Core) com banco **PostgreSQL**, executando em ambiente de nuvem (Azure VM Linux) via **Docker Compose**, com dois containers integrados na mesma rede.
 
-> Os containers usam o RM do representante (RM561857) no nome, conforme exigido.
-
 ---
 
-## Descrição da solucao
+## Descrição da solução
 
 O sistema PM (Problems Monitoring) e uma API REST para monitoramento de datacenters por meio de sensores, conectado ao tema da economia espacial (monitoramento de infraestrutura critica em solo de apoio a operacoes orbitais). A aplicacao expoe um CRUD completo sobre 6 entidades relacionadas (DataCenter, Sensor, TipoAlerta, Alerta, Funcionario, Manutencao), persistindo os dados em um banco PostgreSQL.
 
@@ -39,10 +37,10 @@ Fluxo: o usuario acessa a aplicacao pela porta 8080 publicada na VM. O container
 - Docker e Docker Compose instalados (`docker --version` e `docker compose version`)
 - Portas 8080 e 5432 liberadas no Network Security Group da Azure VM
 
-### 1. Clonar o repositorio
+### 1. Clonar o repositório
 ```bash
-git clone <URL_DO_SEU_REPOSITORIO> (https://github.com/Nicomotac/GlobalSolution-DevOps-2026)
-cd <PASTA_DO_REPOSITORIO> (/API-GlobalSolution-1-2026)
+git clone https://github.com/Nicomotac/GlobalSolution-DevOps-2026
+cd API-GlobalSolution-1-2026
 ```
 
 ### 2. Subir os containers em background
