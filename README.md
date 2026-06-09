@@ -7,7 +7,7 @@ Conteinerizacao da API **PM_API** (.NET 10 / ASP.NET Core) com banco **PostgreSQ
 
 ---
 
-## Descricao da solucao
+## Descrição da solucao
 
 O sistema PM (Problems Monitoring) e uma API REST para monitoramento de datacenters por meio de sensores, conectado ao tema da economia espacial (monitoramento de infraestrutura critica em solo de apoio a operacoes orbitais). A aplicacao expoe um CRUD completo sobre 6 entidades relacionadas (DataCenter, Sensor, TipoAlerta, Alerta, Funcionario, Manutencao), persistindo os dados em um banco PostgreSQL.
 
@@ -41,8 +41,8 @@ Fluxo: o usuario acessa a aplicacao pela porta 8080 publicada na VM. O container
 
 ### 1. Clonar o repositorio
 ```bash
-git clone <URL_DO_SEU_REPOSITORIO>
-cd <PASTA_DO_REPOSITORIO>
+git clone <URL_DO_SEU_REPOSITORIO> (https://github.com/Nicomotac/GlobalSolution-DevOps-2026)
+cd <PASTA_DO_REPOSITORIO> (/API-GlobalSolution-1-2026)
 ```
 
 ### 2. Subir os containers em background
@@ -128,10 +128,10 @@ docker compose down -v       # remove tambem o volume
 ---
 
 ## Integrantes
-- RM561857 - Nicolas Mota Candido - 2TDSPI (representante)
+- RM561857 - Nicolas Mota Candido - 2TDSPI
 - RM562979 - Caio Kenzo Tayra - 2TDSPI
 - RM563000 - Enzo Vieira Bernardini - 2TDSPI
 
 ## Links
-- Repositorio GitHub: <preencher>
-- Video no YouTube: <preencher>
+- Repositorio GitHub: <https://github.com/Caiok275/API-GlobalSolution-1-2026>
+- Video no YouTube:

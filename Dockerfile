@@ -1,5 +1,5 @@
 # ============================================================
-# Container da Aplicacao .NET (imagem personalizada)
+# Container da Aplicacao .NET
 # ============================================================
 
 # ---------- Estagio de build ----------
@@ -32,10 +32,10 @@ RUN chown -R pmuser:pmgroup /app
 # Passa a executar como usuario nao privilegiado
 USER pmuser
 
-# Variavel de ambiente: a aplicacao escuta na porta 8080
+# Variavel de ambiente: Escuta na porta 8080
 ENV ASPNETCORE_URLS=http://+:8080
 
-# Porta exposta (exigido pelo enunciado)
+# Porta exposta
 EXPOSE 8080
 
 ENTRYPOINT ["dotnet", "PM_API.dll"]
