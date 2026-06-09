@@ -33,6 +33,9 @@ Fluxo: o usuario acessa a aplicacao pela porta 8080 publicada na VM. O container
 
 ## How to (passo a passo - do clone ate as evidencias)
 
+
+
+
 ### Pre-requisitos na VM
 - Docker e Docker Compose instalados (`docker --version` e `docker compose version`)
 - Portas 8080 e 5432 liberadas no Network Security Group da Azure VM
@@ -59,7 +62,7 @@ docker compose logs app-RM561857
 docker compose logs db-RM561857
 ```
 
-### 5. Acessar o terminal de cada container (evidencias exigidas)
+### 5. Acessar o terminal de cada container
 ```bash
 # App: estrutura de diretorios e usuario conectado
 docker container exec -it app-RM561857 sh -c "pwd && ls -l && whoami"
@@ -89,7 +92,7 @@ curl http://localhost:8080/api/DataCenter
 curl http://localhost:8080/api/Sensor
 ```
 
-### 7. Evidenciar a persistencia no banco com SELECT (exigido)
+### 7. Evidenciar a persistencia no banco com SELECT
 ```bash
 docker container exec -it db-RM561857 psql -U pmuser -d pmdb -c "SELECT * FROM datacenter;"
 docker container exec -it db-RM561857 psql -U pmuser -d pmdb -c "SELECT * FROM sensor;"
