@@ -27,7 +27,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: app-RM561857          # nome do container contem o RM (exigido)
+    container_name: app-RM561857      
     environment:
       ConnectionStrings__DefaultConnection: "Host=db-RM561857;Port=5432;Database=pmdb;Username=pmuser;Password=pmpass123"
       ASPNETCORE_ENVIRONMENT: "Production"

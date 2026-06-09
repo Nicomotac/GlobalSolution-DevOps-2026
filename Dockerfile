@@ -17,10 +17,10 @@ RUN dotnet publish PM_API/PM_API.csproj -c Release -o /app/publish /p:UseAppHost
 # ---------- Estagio de runtime ----------
 FROM mcr.microsoft.com/dotnet/aspnet:10.0 AS runtime
 
-# Diretorio de trabalho (exigido pelo enunciado)
+# Diretorio de trabalho dentro do container
 WORKDIR /app
 
-# Cria um usuario nao privilegiado (exigido pelo enunciado)
+# Cria um usuario nao privilegiado 
 RUN groupadd -r pmgroup && useradd -r -g pmgroup pmuser
 
 # Copia os artefatos publicados
